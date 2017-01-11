@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Bus {
   private int number;
-  private Person[ ] passengers;
+  private ArrayList<People> passengers;
 
   public Bus(int number){
     this.number = number;
-    this.passengers = new Person[10];
+    this.passengers = new ArrayList<People>();
   }
 
   public int getNumber(){
@@ -12,29 +14,17 @@ class Bus {
   }
 
   public int passengerCount() {
-    int count = 0;
-    for(Person passenger : passengers) {
-      if(passenger != null) {
-        count += 1;
-      }
-    }
-    return count;
+    return passengers.count;
   }
 
-  public void add(Person busgoer) {
-    if (isBusFull()) return;
-
-    int passengerCount = passengerCount();
-    passengers[passengerCount] = busgoer;
-  }
-
-  public boolean isBusFull() {
-    return passengerCount() == passengers.length;
+  public void add(People busgoers) {
+    passengers.add(busgoers);
   }
 
   public void dayEnd() {
-    for(int i = 0; i < passengers.length; i++) {
-      passengers[i] = null;
+    if (passengerCount() > 0 ) {
+      return passengers.remove(0);
     }
+    return null;
   }
 }

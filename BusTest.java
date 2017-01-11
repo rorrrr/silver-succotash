@@ -13,15 +13,15 @@ import org.junit.*;
 //   }
 public class BusTest{
   Bus bus;
-  Person passengers , waiters;
-  BusStop busStop;
+  PersonOn personOn;
+  PersonOff personOff;
 
   @Before 
   public void before() {
     bus = new Bus(23);
     busStop = new BusStop("Street");
-    passengers = new Person();
-    waiters = new Person();
+    personOn = new PersonOn();
+    personOff = new PersonOff();
   }
 
   @Test
@@ -73,7 +73,7 @@ public class BusTest{
     assertEquals(0, busStop.passengerCount());
   }
 
-  
+
 
 
 }
